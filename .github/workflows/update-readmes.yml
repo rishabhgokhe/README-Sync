@@ -1,0 +1,28 @@
+name: Update Readmes
+
+on:
+  push:
+    branches:
+      - main  # Runs when changes are pushed to main
+  workflow_dispatch:  # Allows manual execution from GitHub Actions tab
+
+jobs:
+  update-readmes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run script to update READMEs
+        env:
+          GITHUB_TOKEN: ${{ secrets.token }}
+        run: python generate_readmes.py
