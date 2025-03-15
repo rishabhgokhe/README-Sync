@@ -8,7 +8,7 @@ REPOS = [
 
 # GitHub username & personal access token
 GITHUB_USERNAME = "rishabhgokhe"
-GITHUB_TOKEN = "your-github-token"
+GITHUB_TOKEN = os.getenv("token")
 
 # Centralized blocks directory
 BLOCKS = ["about-me.md"]
