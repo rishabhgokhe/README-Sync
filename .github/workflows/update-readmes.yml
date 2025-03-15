@@ -1,4 +1,4 @@
-name: Update Readmes
+name: Update READMEs
 
 on:
   push:
@@ -22,7 +22,16 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Debug TOKEN
+        run: |
+          if [ -z "${{ secrets.TOKEN }}" ]; then
+            echo "TOKEN is missing!"
+            exit 1
+          else
+            echo "TOKEN is set!"
+          fi
+
       - name: Run script to update READMEs
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}  # Using 'TOKEN' as the secret
         run: python generate_readmes.py
