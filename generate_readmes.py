@@ -1,19 +1,18 @@
 import os
 import requests
+import base64
 
-# List of your GitHub repositories
-REPOS = [
-    "birthday-wisher",
-] 
-
-# GitHub username & personal access token
+# GitHub credentials
 GITHUB_USERNAME = "rishabhgokhe"
-GITHUB_TOKEN = os.getenv("TOKEN")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # Fetching the secret
+
+# List of repositories
+REPOS = ["birthday-wisher"]
 
 # Centralized blocks directory
 BLOCKS = ["about-me.md"]
 
-# Fetch block contents
+# Read blocks content
 block_data = {}
 for block in BLOCKS:
     with open(block, "r") as f:
@@ -21,15 +20,20 @@ for block in BLOCKS:
 
 # Update README in all repos
 for repo in REPOS:
-    readme_path = f"./{repo}/README.md"
+    print(f"Updating README for {repo}...")
 
-    if not os.path.exists(readme_path):
-        print(f"Skipping {repo}, README.md not found.")
+    # Fetch README from GitHub
+    repo_url = f"https://api.github.com/repos/{GITHUB_USERNAME}/{repo}/contents/README.md"
+    headers = {"Authorization": f"Bearer {GITHUB_TOKEN}", "Accept": "application/vnd.github.v3+json"}
+
+    response = requests.get(repo_url, headers=headers)
+    if response.status_code != 200:
+        print(f"Failed to fetch README for {repo}: {response.json()}")
         continue
 
-    # Read existing README
-    with open(readme_path, "r") as f:
-        readme_content = f.read()
+    readme_data = response.json()
+    readme_content = base64.b64decode(readme_data["content"]).decode("utf-8")
+    sha = readme_data["sha"]
 
     # Replace blocks dynamically
     for block, content in block_data.items():
@@ -41,23 +45,18 @@ for repo in REPOS:
                              start_marker + "\n" + content + "\n" + end_marker + \
                              readme_content.split(end_marker)[1]
 
-    # Write updated README
-    with open(readme_path, "w") as f:
-        f.write(readme_content)
+    # Encode new README content in Base64
+    encoded_content = base64.b64encode(readme_content.encode("utf-8")).decode("utf-8")
 
-    # Push changes to GitHub
-    repo_url = f"https://api.github.com/repos/{GITHUB_USERNAME}/{repo}/contents/README.md"
-    headers = {"Authorization": f"token {GITHUB_TOKEN}"}
-    
-    response = requests.get(repo_url, headers=headers).json()
-    sha = response.get("sha", "")
-
-    data = {
+    # Update README via GitHub API
+    update_data = {
         "message": "Updated README with latest blocks",
-        "content": readme_content.encode("utf-8").decode("latin1"),
+        "content": encoded_content,
         "sha": sha
     }
 
-    requests.put(repo_url, headers=headers, json=data)
-
-print("All READMEs updated successfully!")
+    update_response = requests.put(repo_url, headers=headers, json=update_data)
+    if update_response.status_code == 200:
+        print(f"Successfully updated README for {repo} ✅")
+    else:
+        print(f"Failed to update README for {repo}: {update_response.json()} ❌")
