@@ -10,7 +10,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")  # Fetching the secret
 REPOS = ["birthday-wisher"]
 
 # Centralized blocks directory
-BLOCKS = ["about-me.md"]
+BLOCKS = ["about-me"]
 
 # Read blocks content
 block_data = {}
