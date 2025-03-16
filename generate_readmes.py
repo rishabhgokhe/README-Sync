@@ -7,7 +7,7 @@ GITHUB_USERNAME = "rishabhgokhe"
 GITHUB_TOKEN = os.getenv("TOKEN")
 
 # List of repositories
-REPOS = ["Dialytics, README-Sync, birthday-wisher"]
+REPOS = ["Dialytics", "README-Sync", "birthday-wisher"]
 
 # Centralized blocks directory
 BLOCKS = ["connect-with-me.md", "about-me.md", "contribution-guidelines.md", "license.md"]
