@@ -4,7 +4,7 @@ import base64
 
 # GitHub credentials
 GITHUB_USERNAME = "rishabhgokhe"
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+GITHUB_TOKEN = os.getenv("TOKEN")
 
 # List of repositories
 REPOS = ["Dialytics, README-Sync"]
