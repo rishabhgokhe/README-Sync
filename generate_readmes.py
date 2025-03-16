@@ -9,7 +9,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 # Validate Token
 if not GITHUB_TOKEN:
-    print("❌ ERROR: GitHub token is missing. Set the TOKEN environment variable.")
+    print("❌ ERROR: GitHub token is missing. Set the GITHUB_TOKEN environment variable.")
     exit(1)
 
 # List of repositories
@@ -36,14 +36,20 @@ headers = {
 # Function to update README content dynamically
 def update_readme_content(old_content):
     new_content = old_content
+    modified_blocks = []  # Track modified blocks
+
     for block, content in block_data.items():
         start_marker = f"<!-- {block}-start -->"
         end_marker = f"<!-- {block}-end -->"
 
         pattern = re.compile(rf"{start_marker}.*?{end_marker}", re.DOTALL)
         if pattern.search(old_content):
-            new_content = pattern.sub(f"{start_marker}\n{content}\n{end_marker}", new_content)
-    return new_content
+            updated_section = f"{start_marker}\n{content}\n{end_marker}"
+            if pattern.search(old_content).group(0) != updated_section:
+                new_content = pattern.sub(updated_section, new_content)
+                modified_blocks.append(block)  # Store the modified block name
+
+    return new_content, modified_blocks
 
 # Update README in all repos
 for repo in REPOS:
@@ -62,18 +68,21 @@ for repo in REPOS:
     sha = readme_data["sha"]
 
     # Process README content
-    new_readme_content = update_readme_content(old_readme_content)
+    new_readme_content, modified_blocks = update_readme_content(old_readme_content)
 
-    if old_readme_content == new_readme_content:
+    if not modified_blocks:
         print("⚠️ No changes detected in README. Skipping update.")
         continue
+
+    # Generate commit message dynamically based on modified blocks
+    commit_message = f"Updated README: {', '.join(modified_blocks)} modified"
 
     # Encode new README content in Base64
     encoded_content = base64.b64encode(new_readme_content.encode("utf-8")).decode("utf-8")
 
     # Update README via GitHub API
     update_data = {
-        "message": "Updated README with latest blocks",
+        "message": commit_message,
         "content": encoded_content,
         "sha": sha
     }
