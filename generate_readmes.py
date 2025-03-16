@@ -5,7 +5,7 @@ import re
 
 # GitHub credentials
 GITHUB_USERNAME = "rishabhgokhe"
-GITHUB_TOKEN = os.getenv("TOKEN")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 
 # Validate Token
 if not GITHUB_TOKEN:
