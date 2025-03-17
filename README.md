@@ -70,29 +70,41 @@ For any inquiries, please contact: 📧 [rishabhgokhe20contact@gmail.com](mailto
 <!-- contribution-guidelines.md-start -->
 ## 💡 Contribution Guidelines
 
-For checking if README-Sync works properly or not.
+Contributions are welcome! Please follow these steps to contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add some feature'`).
+5. Push to the branch (`git push origin feature/your-feature`).
+6. Create a new Pull Request.
 <!-- contribution-guidelines.md-end -->
 
 <!-- author.md-start -->
-Author
+## 👨🏻‍💻 Author
+
+**Rishabh Gokhe**
+
+![Open Source](https://img.shields.io/badge/Open%20Source-Lover-ff69b4?style=flat) ![Build With ❤️](https://img.shields.io/badge/Built%20With-%E2%9D%A4-red?style=flat)
 <!-- author.md-end -->
 
 <!-- about-me.md-start -->
-## 🚀 About Me  
+## 🚀 About Me
 
-Hi there! I'm Rishabh Gokhe, a full-stack developer passionate about building scalable, real-time, and user-friendly applications. I focus on crafting seamless digital experiences using modern technologies like WebSockets, React, and Node.js.  
+Hi there! I'm Rishabh Gokhe, a full-stack developer passionate about building scalable, real-time, and user-friendly applications. I focus on crafting seamless digital experiences using modern technologies like WebSockets, React, and Node.js.
 
-I enjoy exploring new ideas, experimenting with emerging tech, and collaborating with like-minded developers. Whether it's web development, UI/UX design, or optimizing performance, I'm always excited to push boundaries and create impactful solutions.  
+I enjoy exploring new ideas, experimenting with emerging tech, and collaborating with like-minded developers. Whether it's web development, UI/UX design, or optimizing performance, I'm always excited to push boundaries and create impactful solutions.
 
-### My Vision  
+### My Vision
 
-I believe technology should be intuitive, efficient, and accessible. My goal is to develop applications that enhance communication, productivity, and user experience. From real-time interactions to automation, I strive to build solutions that make a difference.  
+I believe technology should be intuitive, efficient, and accessible. My goal is to develop applications that enhance communication, productivity, and user experience. From real-time interactions to automation, I strive to build solutions that make a difference.
 
 Feel free to reach out—always open to discussions, collaborations, and learning from fellow developers! 🚀
 <!-- about-me.md-end -->
 
 <!-- feedback.md-start -->
-feedback
+## 📨 Feedback
+
+Got feedback, suggestions, or ideas? Feel free to reach out! [![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=gmail&logoColor=white)](mailto:rishabhgokhe20contact@gmail.com)
 <!-- feedback.md-end -->
 
 <!-- connect-with-me.md-start -->
