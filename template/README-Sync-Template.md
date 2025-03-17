@@ -1,13 +1,29 @@
-# Readme-Sync
+![Project Banner](Link)
 
-A Python script to automate README updates across multiple repositories by dynamically inserting or updating content blocks.
+# Project Name (Info)
+
+## Description
+
+Project Description
+
+## 📸 Screenshots
+
+#### Home Page
+![TaskFlow Home](url)
+
+#### Dashboard
+![Task Management](url)
 
 # Table of Contents
 
   - [Features](#-features)
-  - [How It Works](#-how-it-works)
-  - [Example Block Structure](#-example-block-structure)
-  - [Notes](#-notes)
+  - [Upcoming Features](#-upcoming-features)
+  - [Tech Stack](#️-tech-stack)
+  - [Setup Instructions](#️-setup-instructions)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Live Preview](#-live-preview)
+  - [Acknowledgments](#-acknowledgments)
   - [Code of Conduct](#-code-of-conduct)
   - [License](#-license)
   - [Contribution Guidelines](#-contribution-guidelines)
@@ -16,56 +32,97 @@ A Python script to automate README updates across multiple repositories by dynam
   - [Feedback](#-feedback)
   - [Connect with Me](#-connect-with-me)
 
-## 🚀 Features
+## ✨ Features
 
-- Automatically updates README files in specified repositories.
-- Dynamically replaces specific content blocks using predefined markers.
-- Supports multiple reusable Markdown blocks (e.g., `connect-with-me.md`, `license.md`).
-- Detects changes before updating to avoid unnecessary commits.
-- Generates meaningful commit messages with updated block names.
+- **Project Features:** Write all feature here in this format.
 
-## ✏️ How It Works
-1. Fetches the existing `README.md` from the target repositories.
-2. Checks for predefined markers (`<!-- block-name-start.md --> ... <!-- block-name-end.md -->`).
-3. Updates only the modified sections while keeping the rest of the README unchanged.
-4. Commits and pushes changes with a message like:
-   ```
-   Updated README: connect-with-me.md, license.md
-   ```
+## 🚀 Upcoming Features
 
-## 📂 Example Block Structure
-Inside your repo, store reusable Markdown files:
-```
-📂 README-Sync
- ┣ 📜 generate_readmes.py
- ┣ 📜 connect-with-me.md
- ┣ 📜 contribution-guidelines.md
- ┣ 📜 license.md
- ┗ 📜 README.md
-```
+- **Project Upcoming Features:** Write all upcoming features idea here.
 
-Each block should have start and end markers in the README:
-```markdown
-<!-- readme-file-name.md-start -->
-Your Block Code Here
-<!-- readme-file-name.md-end -->
-```
+**Currently Working on [feature]...**
 
-## 📌 Notes
-- The script **only updates modified blocks** to prevent unnecessary commits.
-- If no changes are detected, it skips the update process.
-- Supports multiple repositories.
+## 🖥️ Tech Stack
+
+- **Frontend:** React, Tailwind, JavaScript
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (MongoDB Atlas)
+
+## ⚙️ Setup Instructions
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+
+### Installation
+
+1. **Clone the Repository:**
+   ```bash
+   git clone <your-git-repo-clone-url>
+
+2. **Navigate to Repository:**
+    ```bash
+    cd TaskFlow
+
+3. **Install Node Modules:**
+    ```bash
+    npm install
+
+4. **Setup Environment Variables:**
+   Create a `.env` file in the main directory and add the following:  
+       JWT_SECRET- is essential for generating login cookies
+       <br/>
+       MONGODB_URI - required for add and fetching data
+       <br/>
+   ```plaintext
+   MONGODB_URI=<your-mongodb-connection-string>
+   PORT=4000
+   JWT_SECRET=<randomString>
+   CLOUDINARY_CLOUD_NAME=<your-cloudinary-cloud-name>
+   CLOUDINARY_API_KEY=<your-cloudinary-api-key>
+   CLOUDINARY_API_SECRET=<your-cloudinary-api-secret>
+
+5. **Run Project:**
+    ```bash
+    npm run dev
+
+6. **Access the Application:**
+   Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
+
+## 🌐 Live Preview
+
+[Project] is live on [Platform]: [ByteChat Live](https://bytechat-ltd0.onrender.com/login)
+> ⚠ Note: The project may take a few moments to load as Render puts free-tier applications into sleep mode when inactive. Please allow some time for it to spin up. 🚀
+
+
+## 🙌 Acknowledgments
+
+- [React](https://react.dev/) for the frontend framework
+- [Tailwind CSS](https://tailwindcss.com/) for styling and responsive design
+- [Socket.io](https://socket.io/) for real-time messaging and WebSockets communication
+- [DaisyUI](https://daisyui.com/) for pre-built UI components and theme customization
+- [MongoDB](https://www.mongodb.com/) for the database management system
+- [Node.js](https://nodejs.org/) for the JavaScript runtime
+- [Express.js](https://expressjs.com/) for the web application framework
 
 ## 📜 Code of Conduct
 
 We expect all participants in our community to adhere to our Code of Conduct. Please read the full text [here](CODE_OF_CONDUCT.md).
 
+<!-- license.md-start -->
 ## 🔒 License
 
-This project is licensed under the **MIT License**.  
-For full license details, refer to the **[LICENSE](LICENSE)** file.  
+This project is licensed under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)** license.
 
-For any inquiries, please contact: 📧 [rishabhgokhe20contact@gmail.com](mailto:rishabhgokhe20contact@gmail.com)
+You are **welcome to contribute** via pull requests and issues, but **commercial use, redistribution, or proprietary modifications** are **strictly prohibited** without explicit permission.
+
+For full license details, refer to the [LICENSE](LICENSE) file.
+
+For licensing inquiries or permissions, please contact:
+[![Email Me](https://img.shields.io/badge/Email-Me-black?style=flat&logo=gmail&logoColor=white)](mailto:rishabhgokhe20contact@gmail.com)
+<!-- license.md-end -->
 
 <!-- contribution-guidelines.md-start -->
 ## 💡 Contribution Guidelines
@@ -120,7 +177,3 @@ Got feedback, suggestions, or ideas? Feel free to reach out! [![Email Me](https:
 
 **Email Address** : [rishabhgokhe20contact@gmail.com](mailto:rishabhgokhe20contact@gmail.com)
 <!-- connect-with-me.md-end -->
-
----
-
-🚀 **Keep your README in sync effortlessly!** 🔄  
