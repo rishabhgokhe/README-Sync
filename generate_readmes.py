@@ -16,7 +16,7 @@ if not GITHUB_TOKEN:
 REPOS = ["Dialytics", "README-Sync", "birthday-wisher"]
 
 # Centralized blocks directory
-BLOCKS = ["connect-with-me.md", "about-me.md", "contribution-guidelines.md", "license.md"]
+BLOCKS = ["connect-with-me.md", "about-me.md", "contribution-guidelines.md", "license.md", "author.md", "feedback.md"]
 
 # Read blocks content
 block_data = {}
