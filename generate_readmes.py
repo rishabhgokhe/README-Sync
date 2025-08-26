@@ -13,7 +13,7 @@ if not GITHUB_TOKEN:
     exit(1)
 
 # List of repositories
-REPOS = ["Dialytics", "README-Sync", "birthday-wisher"]
+REPOS = ["Dialytics", "README-Sync", "birthday-wisher", "qr-treasure-hunt"]
 
 # Centralized blocks directory
 BLOCKS = ["connect-with-me.md", "about-me.md", "contribution-guidelines.md", "license.md", "author.md", "feedback.md"]
